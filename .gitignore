@@ -1,0 +1,11 @@
+.local-env.dummy
+.env
+infra/**/.terraform
+infra/**/.terraform.lock.hcl
+infra/**/*.tfstate
+infra/**/*.backup
+
+# populated config
+config.yml
+htpasswd
+htpasswd-registry

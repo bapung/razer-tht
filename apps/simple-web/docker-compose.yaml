@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  web:
+    image: localhost:5000/yeasy/simple-web:latest
+    deploy:
+      replicas: 2
+    networks: 
+    - simplewebnetwork
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80" # Expose nginx on port 80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - web
+    networks: 
+    - simplewebnetwork
+networks:
+  simplewebnetwork:
